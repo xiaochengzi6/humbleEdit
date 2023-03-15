@@ -1,46 +1,14 @@
-# Getting Started with Create React App
+## 构思
+1. 先实现一个简单的 demo 看看是否可行 (可行)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+根据多篇文档的指导 先将其大致划分为三个部分，M(Module) V(View) C(Controller) 那么由 react 去实现 view 层次，controller 和 Module 还没有什么头绪，总体的流程是这样的：
+- 用户在可编辑区域编辑 触发 dom tree 发生变化
+- 监听 dom 发生的变化
+- 发生变化后 diff 出发生变化的节点或文本 根据 规则 去生成合适的 数据格式
+- 将数据格式转为html结构
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `yarn start`
+## 想法
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. 用户在操作编辑器的时候是需要将用户的数据拿去做处理最后在显示在屏幕上（这一步的操作主要是为了统一不同浏览器之间的差异问题，统一的数据模型和统一是文档模型）这里数据体量上来后会不会造成延迟的出现，我觉得可以在复制粘贴上使用先展示后计算的方法，让用户先看到数据，而后在重新计算后 innerhtml 到页面
